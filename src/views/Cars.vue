@@ -1,3 +1,4 @@
+
 <template>
   <b-container class="bv-example-row">
     <b-row>
@@ -81,9 +82,7 @@
 </template>
 
 <script>
-
 import axios from 'axios'
-
 export default {
   name: 'Cars',
   data () {

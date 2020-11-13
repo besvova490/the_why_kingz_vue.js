@@ -57,7 +57,7 @@
              </b-form-input>
          </b-form-group>
          <b-button type="submit" variant="primary">Update</b-button> |
-         <b-button type="reset" variant="danger">Reset</b-button> | 
+         <b-button type="reset" variant="danger">Reset</b-button> |
          <b-button v-on:click="delete_car">Delete</b-button>
          </b-form>
        </b-col>
@@ -72,17 +72,12 @@ export default {
   data () {
     return {
       car: {},
-      form: {
-        model: '',
-        year: '',
-        manufacturer: '',
-        color: ''
-      }
+      form: {}
     }
   },
   mounted () {
     axios.get('http://localhost:5000/cars/' + this.$route.params.vin)
-      .then(response => (this.car = response.data.item[0]))
+      .then(response => (this.car = response.data.item[0], this.form = response.data.item[0], delete this.form['_id'], delete this.form['VIN']))
   },
   methods: {
     onSubmit (evt) {
